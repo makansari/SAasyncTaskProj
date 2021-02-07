@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     inner class MyAsyncTask : AsyncTask<String, Int,String>(){
 
         val progressDialog = ProgressDialog(this@MainActivity)
+        var counter = 10
 
         override fun onPreExecute() {
             super.onPreExecute()
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
              for(i in 0..10){
                  Thread.sleep(1000)
 
-                 publishProgress(i)
+                 publishProgress(i + 25)
 
              }
             var someData = " Downloaded the images"
@@ -63,7 +64,10 @@ class MainActivity : AppCompatActivity() {
             var c  = values[0]
             var t : Int = c!!.toInt()
             textViewResult.setText("Downloading $c %")
-            progressBarHorizontal.setProgress(t)
+
+            progressBarHorizontal.max = 100
+
+            progressBarHorizontal.progress = t
         }
 
         override fun onPostExecute(result: String?) {
