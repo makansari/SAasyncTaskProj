@@ -25,12 +25,9 @@ class RunTimePerActivity : AppCompatActivity() {
             }else
             {
                 // permission is not granted... we need to take the permsssion
-
                 takingPermission()
 
             }
-
-
         }
     }
 
